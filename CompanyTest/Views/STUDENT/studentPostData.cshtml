@@ -1,0 +1,36 @@
+﻿@model CompanyTest.Models.STUDENT
+
+<form method="post" enctype="multipart/form-data">
+    <div class="mt-2 mb-2 form-group">
+        <label asp-for="ROLLNUMBER"></label>
+        <input type="number" asp-for="ROLLNUMBER" class="form-control" />
+        <span asp-validation-for="ROLLNUMBER" class="text-danger"></span>
+    </div>
+    <div class="mt-2 mb-2 form-group">
+        <label asp-for="NAME"></label>
+        <input type="text" asp-for="NAME" class="form-control" />
+        <span asp-validation-for="NAME" class="text-danger"></span>
+    </div>
+    <div class="mt-2 mb-2 form-group">
+        <label asp-for="AGE"></label>
+        <input type="number" asp-for="AGE" class="form-control" />
+        <span asp-validation-for="AGE" class="text-danger"></span>
+    </div>
+
+    <div class="mt-2 mb-2 form-group">
+        <label asp-for="IMAGEPATH">Profile Image</label>
+        <input  type="file" asp-for="IMAGEPATH" class="form-control" />
+    </div>
+    <div class="mt-2 mb-2 form-group">
+        <label asp-for="CLASS"></label>
+        <input type="text" asp-for="CLASS" class="form-control" />
+    </div>
+    <button asp-controller="STUDENT" asp-action="studentPostData" type="submit" class="btn btn-outline-success mb-2">SUBMIT</button>
+</form>
+
+
+@section Scripts{
+
+    <partial name="_ValidationScriptsPartial" />
+
+}

@@ -1,0 +1,47 @@
+﻿@model CompanyTest.Models.StudentFilterViewModel
+
+@{
+    ViewData["Title"] = "List of Students";
+}
+
+<h2>List of Students</h2>
+
+<form method="get" asp-controller="STUDENT" asp-action="ListStudents">
+    <div class="form-group">
+        <input type="text" name="searchTerm" value="@Model.SearchTerm" class="form-control" placeholder="Search by student name" />
+        <button type="submit" class="btn btn-primary mt-2">Search</button>
+    </div>
+</form>
+
+@if (Model.Students != null && Model.Students.Any())
+{
+    var classes = Model.Students.GroupBy(s => s.CLASS);
+
+    foreach (var studentClass in classes)
+    {
+        <h3>Class: @studentClass.Key</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Roll Number</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var student in studentClass)
+                {
+                    <tr>
+                        <td>@student.ROLLNUMBER</td>
+                        <td>@student.NAME</td>
+                        <td>@student.AGE</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+}
+else
+{
+    <p>No students found.</p>
+}

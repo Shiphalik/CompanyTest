@@ -1,0 +1,22 @@
+﻿@model IEnumerable<CompanyTest.Models.SUBJECTS>
+
+<div class="container">
+    <h1 class="mt-5">Subjects and Their Teachers</h1>
+    <table class="table table-striped mt-3">
+        <thead>
+            <tr>
+                <th>Subject Name</th>
+                <th>Teacher Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var subject in Model)
+            {
+                <tr>
+                    <td>@subject.NAME</td>
+                    <td>@subject.TEACHER.NAME</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

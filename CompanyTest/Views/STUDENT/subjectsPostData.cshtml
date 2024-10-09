@@ -1,0 +1,36 @@
+﻿@model CompanyTest.Models.SUBJECTS
+
+<form method="post">
+
+    <div class="mt-2 mb-2 form-group">
+        <label for="SUBJECT NAME">SUBJECT NAME</label>
+        <input type="text" asp-for="NAME" class="form-control" />
+        <span asp-validation-for="NAME" class="text-danger"></span>
+    </div>
+   
+    <div class="mt-2 mb-2 form-group">
+        <label asp-for="CLASS"></label>
+        <input type="text" asp-for="CLASS" class="form-control" />
+        <span asp-validation-for="CLASS" class="text-danger"></span>
+    </div>
+
+
+    <div class="form-group mt-2 mb-2">
+        <label asp-for="LANGUAGE">Languages</label>
+        <div class="dropdown">
+            <select asp-for="LANGUAGE" class="form-control">
+            <option value="English">English</option>
+            <option value="Hindi">Hindi</option>
+            <option value="Mathematics">Punjabi</option>
+          
+        </select>
+        </div>
+    </div>
+    <button asp-controller="STUDENT" asp-action="subjectsPostData" type="submit" class="btn btn-outline-success px-5 mb-2">SUBMIT</button>
+</form>
+
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+
+}
